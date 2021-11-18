@@ -6,21 +6,11 @@ import CardList from "./components/CardList";
 function App() {
   const [date, setDate] = useState(new Date());
   const [doodles, setDoodles] = useState([]);
+  const [filteredDoodle, setFilteredDoodle] = useState([]);
   const [formattedDate, setFormattedDate] = useState("");
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
 
   useEffect(() => {
-    // axios
-    //   .get(
-    //     `https://google-doodles.herokuapp.com/doodles/${date.getFullYear()}/${
-    //       date.getMonth() + 1
-    //     }?hl=en`
-    //   )
-    //   .then((res) => {
-    //     console.log(res);
-    //     setDoodles(res.data);
-    //   })
-    //   .catch((e) => console.error(e));
     fetchDoodles();
   }, [currentMonth]);
 
@@ -31,9 +21,9 @@ function App() {
       promises.push(
         axios
           .get(
-            `https://google-doodles.herokuapp.com/doodles/${
+            `https://doodle-proxy.herokuapp.com/get/doodle/${
               date.getFullYear() - i
-            }/${date.getMonth() + 1}?hl=en`
+            }/${date.getMonth() + 1}`
           )
           .then((res) => arr.push(res.data))
       );
@@ -58,8 +48,18 @@ function App() {
 
   return (
     <div className='App'>
-      <Header date={date} setDate={setDate} formattedDate={formattedDate} />
-      <CardList doodles={doodles} date={date} formattedDate={formattedDate} />
+      <Header
+        date={date}
+        setDate={setDate}
+        formattedDate={formattedDate}
+        doodles={doodles}
+        setFilteredDoodle={setFilteredDoodle}
+      />
+      <CardList
+        doodles={filteredDoodle}
+        date={date}
+        formattedDate={formattedDate}
+      />
     </div>
   );
 }
