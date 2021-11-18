@@ -1,0 +1,33 @@
+.card-container {
+  max-width: 350px;
+  border: 1px solid #333;
+  border-radius: 0.25em;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.card-container img {
+  width: 350px;
+  max-height: 140px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body a {
+  text-decoration: none;
+  color: aliceblue;
+  background-color: green;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  width: 100%;
+  text-align: center;
+}
+
+.card-body p {
+  margin: 0.25em;
+}

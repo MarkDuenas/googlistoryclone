@@ -1,0 +1,19 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  border-radius: 50%;
+  border: none;
+  color: red;
+  background-color: aqua;
+  cursor: pointer;
+}
+
+.header-container p {
+  display: inline-block;
+  margin: 0 0.75em;
+}
